@@ -1,103 +1,150 @@
-# stocker
-Stocker is a cloud-based stock trading web application built using Flask and AWS services such as DynamoDB, SNS, and EC2. It allows users to register, login, view available stocks, buy/sell stocks, and manage their portfolio with real-time cloud database updates and notifications.
+Stocker – Cloud Based Stock Trading Application
 
-# Stocker – Cloud Based Stock Trading Application
-Stocker is a cloud-based stock trading web application developed using the Flask framework and AWS cloud services. The application allows users to register, log in, view available stocks, buy or sell stocks, and manage their personal trading portfolio. The system uses AWS DynamoDB for storing user accounts, stock details, transactions, and portfolio data.
+Stocker is a cloud-based stock trading web application built using the Flask framework and AWS cloud services. The application allows users to register, log in, view available stocks, buy or sell stocks, and manage their trading portfolio.
 
-The application also integrates Amazon SNS (Simple Notification Service) to send notifications whenever a user registers, logs in, or performs stock transactions such as buying or selling stocks.
+The system uses AWS DynamoDB for storing user accounts, stock details, transactions, and portfolio data. It also integrates Amazon SNS (Simple Notification Service) to send notifications whenever users perform actions such as signing up, logging in, buying, or selling stocks.
 
-The project demonstrates how modern cloud services can be used to build scalable and efficient web applications.
+This project demonstrates how modern cloud services and web technologies can be combined to build scalable, efficient, and real-time applications.
 
----
+Features
 
-## Features
+User Registration and Login
 
-- User Registration and Login
-- Trader Dashboard
-- Admin Dashboard
-- View Available Stocks
-- Buy Stocks
-- Sell Stocks
-- Portfolio Management
-- Real-time Database Updates
-- SNS Email Notifications
-- Cloud Deployment using AWS EC2
+Trader Dashboard
 
----
+Admin Dashboard
 
-## Technologies Used
+View Available Stocks
 
-### Backend
-- Python
-- Flask
+Buy Stocks
 
-### Frontend
-- HTML
-- CSS
-- Jinja2 Templates
+Sell Stocks
 
-### Cloud Services
-- AWS DynamoDB (Database)
-- AWS SNS (Notifications)
-- AWS EC2 (Deployment)
+Portfolio Management
 
-### Libraries
-- boto3
-- Flask
-- python-dotenv
+Real-time Database Updates
 
----
+Email Notifications using AWS SNS
 
-## Project Architecture
+Cloud Deployment using AWS EC2
 
-User Browser  
-↓  
-Flask Web Application (EC2)  
-↓  
-AWS DynamoDB Database  
-↓  
-Amazon SNS Notification System  
+Technologies Used
+Backend
 
----
+Python
 
-## DynamoDB Tables
+Flask
 
-The application uses four DynamoDB tables:
+Frontend
 
-- **Users** – Stores user account details
-- **Stocks** – Stores available stock information
-- **Transactions** – Stores buy/sell records
-- **Portfolio** – Stores user stock holdings
+HTML
 
----
+CSS
 
-## Application Pages
+Jinja2 Templates
 
-- Home Page
-- Signup Page
-- Login Page
-- Trader Dashboard
-- Admin Dashboard
-- Portfolio Page
+Cloud Services
 
----
+AWS DynamoDB – Database storage
 
-## Example Stocks
+AWS SNS – Email notifications
 
-| Stock | Symbol | Price |
-|------|------|------|
-| Apple | AAPL | $180 |
-| Tesla | TSLA | $240 |
-| Google | GOOG | $130 |
+AWS EC2 – Cloud deployment
 
----
+Libraries
 
-## Deployment
+boto3
 
-The application can be deployed on AWS EC2 by installing Python, Flask, and cloning the repository.
+Flask
 
-Run:
+python-dotenv
 
-```bash
-pip install -r requirements.txt
-python app.py
+Project Architecture
+User Browser
+     ↓
+Flask Web Application (EC2)
+     ↓
+AWS DynamoDB Database
+     ↓
+Amazon SNS Notification System
+DynamoDB Tables
+
+The application uses four DynamoDB tables.
+
+Users
+
+Stores user account details.
+
+Field	Description
+user_id	Unique user ID
+email	User email
+password	User password
+role	admin / trader
+is_active	Account status
+Stocks
+
+Stores available stock information.
+
+Field	Description
+stock_id	Unique stock ID
+symbol	Stock symbol
+price	Stock price
+
+Example stocks:
+
+Stock	Symbol	Price
+Apple	AAPL	$180
+Tesla	TSLA	$240
+Google	GOOG	$130
+Transactions
+
+Stores buy and sell records.
+
+Field	Description
+transaction_id	Transaction ID
+stock_id	Stock identifier
+quantity	Number of shares
+action	BUY / SELL
+Portfolio
+
+Stores user stock holdings.
+
+Field	Description
+portfolio_id	Portfolio ID
+user_id	User identifier
+stock_id	Stock identifier
+quantity	Shares owned
+Application Pages
+
+Home Page
+
+Signup Page
+
+Login Page
+
+Trader Dashboard
+
+Admin Dashboard
+
+Portfolio Page
+
+Buy Stock Page
+
+Sell Stock Page
+
+Project Folder Structure
+stocker
+│
+├── app.py
+├── db.py
+├── requirements.txt
+│
+├── templates
+│   ├── index.html
+│   ├── login.html
+│   ├── signup.html
+│   ├── dashboard.html
+│   ├── admin_dashboard.html
+│
+└── static
+    └── style.css
